@@ -67,6 +67,7 @@ public class PaymentData {
     private (set) var ipAddress: String? = "98.21.123.32"
     private (set) var cultureName: String?
     private (set) var jsonData: String?
+    private (set) var orderId: Int
     
     var email: String?
     var terminalUrl: String? = nil
@@ -76,7 +77,8 @@ public class PaymentData {
     var isAllowedNotSanctionedCards: Bool? = nil
     var isQiwi: Bool? = nil
     
-    public init() {
+    public init(orderId: Int) {
+        self.orderId = orderId
     }
     
     public func setAmount(_ amount: String) -> PaymentData {

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Cloudpayments. All rights reserved.
 //
 
+import Foundation
+
 public class PaymentConfiguration {
     let publicId: String
     let paymentData: PaymentData

@@ -6,6 +6,7 @@
 //  Copyright © 2023 Cloudpayments. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 extension UIApplication {

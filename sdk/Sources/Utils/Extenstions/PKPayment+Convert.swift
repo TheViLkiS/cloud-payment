@@ -5,6 +5,8 @@
 //  Created by Sergey Iskhakov on 08.09.2020.
 //  Copyright © 2020 cloudpayments. All rights reserved.
 //
+
+import Foundation
 import PassKit
 
 extension PKPayment {

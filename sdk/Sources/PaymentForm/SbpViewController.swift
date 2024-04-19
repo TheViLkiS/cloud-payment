@@ -5,6 +5,7 @@
 //  Created by Cloudpayments on 26.07.2023.
 //
 
+import Foundation
 import UIKit
 
 final class SbpViewController: BaseViewController {

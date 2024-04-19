@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 public protocol PaymentCardScanner {
     func startScanner(completion: @escaping (_ number: String?, _ mm: UInt?, _ yy: UInt?, _ cvv: String?) -> Void) -> UIViewController?

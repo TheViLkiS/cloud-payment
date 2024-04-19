@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 public class BaseViewController: UIViewController {
     // MARK: - Public Properties

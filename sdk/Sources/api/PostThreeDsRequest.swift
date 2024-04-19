@@ -6,7 +6,6 @@
 //
 
 import CloudpaymentsNetworking
-import Foundation
 
 class PostThreeDsRequest: BaseRequest, CloudpaymentsRequestType {
     typealias ResponseType = TransactionResponse

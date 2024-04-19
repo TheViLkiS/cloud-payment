@@ -6,7 +6,6 @@
 //  Copyright © 2021 Cloudpayments. All rights reserved.
 //
 
-import Foundation
 
 public struct TransactionResponse: Codable {
     public private(set) var success: Bool?

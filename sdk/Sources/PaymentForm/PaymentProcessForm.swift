@@ -8,7 +8,6 @@
 
 import UIKit
 import WebKit
-import Foundation
 
 public class PaymentProcessForm: PaymentForm {
     public enum State {
@@ -116,9 +115,6 @@ public class PaymentProcessForm: PaymentForm {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        let tapGetureRecognizer = UITapGestureRecognizer(target: self, action: #selector(progressIconTapped))
-                progressIcon.isUserInteractionEnabled = true
-                progressIcon.addGestureRecognizer(tapGetureRecognizer)
         tinkoffDescription.text = State.inProgressTinkoff.description()
         self.updateUI(with: self.state)
         selectPaymentButton.addTarget(self, action: #selector(tinkoffAction(_:)), for: .touchUpInside)
@@ -228,15 +224,13 @@ public class PaymentProcessForm: PaymentForm {
         self.actionButton.setTitle(self.state.getActionButtonTitle(), for: .normal)
         
         if case .succeeded(let transaction) = self.state {
+            
+            self.configuration.paymentDelegate.paymentFinished(transaction)
             self.actionButton.onAction = { [weak self] in
-                guard let self = self else {
-                    return
-                }
-                self.hide()
-                self.configuration.paymentDelegate.paymentFinished(transaction, self.configuration.paymentData.orderId )
+                self?.hide()
             }
         } else if case .failed(let errorMessage) = self.state {
-            self.configuration.paymentDelegate.paymentFailed(errorMessage, configuration.paymentData.orderId)
+            self.configuration.paymentDelegate.paymentFailed(errorMessage)
             self.actionButton.onAction = { [weak self] in
                 guard let self = self else {
                     return
@@ -290,17 +284,6 @@ public class PaymentProcessForm: PaymentForm {
             completion?()
         }
     }
-    
-    @objc func progressIconTapped() {
-        if case .failed = self.state {
-            self.dismiss(animated: true) { [weak self] in
-                guard let self = self else {
-                    return
-                }
-                self.configuration.paymentDelegate.paymentCanceled(self.configuration.paymentData.orderId)
-            }
-        }
-    }
 }
 
 extension PaymentProcessForm {
@@ -316,8 +299,16 @@ extension PaymentProcessForm {
         let email = configuration.paymentData.email
         let sсheme: Scheme = configuration.useDualMessagePayment ? .auth : .charge
         let jsonData = configuration.paymentData.jsonData
-        let successRedirectUrl = configuration.successRedirectUrl
-        let failRedirectUrl = configuration.failRedirectUrl
+        var successRedirectUrl = configuration.successRedirectUrl
+        var failRedirectUrl = configuration.failRedirectUrl
+        
+        if successRedirectUrl.isNilOrEmpty {
+            successRedirectUrl = configuration.paymentData.terminalUrl
+        }
+        
+        if failRedirectUrl.isNilOrEmpty {
+            failRedirectUrl = configuration.paymentData.terminalUrl
+        }
         
         let model = TinkoffPayData(publicId: publicId,
                                    amount: amount ,

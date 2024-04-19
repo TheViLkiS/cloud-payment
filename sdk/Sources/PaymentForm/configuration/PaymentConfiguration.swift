@@ -5,7 +5,6 @@
 //  Created by Sergey Iskhakov on 08.10.2020.
 //  Copyright © 2020 Cloudpayments. All rights reserved.
 //
-import Foundation
 
 public class PaymentConfiguration {
     let publicId: String
@@ -19,10 +18,9 @@ public class PaymentConfiguration {
     let apiUrl: String
     var successRedirectUrl: String?
     var failRedirectUrl: String?
-    let customListBanks: Bool
-
+   
     public init(publicId: String, paymentData: PaymentData, delegate: PaymentDelegate? = nil, uiDelegate: PaymentUIDelegate? = nil, scanner: PaymentCardScanner? = nil,
-                requireEmail: Bool = false, useDualMessagePayment: Bool = false, disableApplePay: Bool = false, apiUrl: String = "https://api.cloudpayments.ru/", customListBanks: Bool = false, successRedirectUrl: String? = nil, failRedirectUrl: String? = nil) {
+                requireEmail: Bool = false, useDualMessagePayment: Bool = false, disableApplePay: Bool = false, apiUrl: String = "https://api.cloudpayments.ru/", successRedirectUrl: String? = nil, failRedirectUrl: String? = nil) {
         self.publicId = publicId
         self.paymentData = paymentData
         self.paymentDelegate = PaymentDelegateImpl.init(delegate: delegate)
@@ -32,7 +30,6 @@ public class PaymentConfiguration {
         self.useDualMessagePayment = useDualMessagePayment
         self.disableApplePay = disableApplePay
         self.apiUrl = apiUrl
-        self.customListBanks = customListBanks
         self.successRedirectUrl = successRedirectUrl
         self.failRedirectUrl = failRedirectUrl
     }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 extension UIView {
     convenience init(backgroundColor: UIColor? = .white, cornerRadius: CGFloat? = nil, clipsToBounds: Bool? = true) {

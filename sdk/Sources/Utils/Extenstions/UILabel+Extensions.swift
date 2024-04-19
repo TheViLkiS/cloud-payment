@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Foundation
 
 extension UILabel {
     convenience init(text: String, textColor: UIColor, fontSize: CGFloat) {

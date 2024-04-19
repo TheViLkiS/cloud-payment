@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 protocol ProgressTPayPresenterProtocol: AnyObject {
     func getLink()

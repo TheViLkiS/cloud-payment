@@ -5,12 +5,10 @@
 //  Created by Sergey Iskhakov on 08.10.2020.
 //  Copyright © 2020 Cloudpayments. All rights reserved.
 //
-import Foundation
 
 public protocol PaymentDelegate: AnyObject {
-    func onPaymentFinished(_ transactionId: Int64?, _ orderId: Int)
-    func onPaymentFailed(_ errorMessage: String?, _ orderId: Int)
-    func onPaymentCanceled(_ orderId: Int)
+    func onPaymentFinished(_ transactionId: Int64?)
+    func onPaymentFailed(_ errorMessage: String?)
 }
 
 public protocol PaymentUIDelegate: AnyObject {
@@ -27,16 +25,12 @@ internal class PaymentDelegateImpl {
         self.delegate = delegate
     }
     
-    func paymentFinished(_ transaction: Transaction?, _ orderId: Int){
-        self.delegate?.onPaymentFinished(transaction?.transactionId, orderId)
+    func paymentFinished(_ transaction: Transaction?){
+        self.delegate?.onPaymentFinished(transaction?.transactionId)
     }
     
-    func paymentFailed(_ errorMessage: String?, _ orderId: Int) {
-        self.delegate?.onPaymentFailed(errorMessage, orderId)
-    }
-
-    func paymentCanceled(_ orderId: Int) {
-        self.delegate?.onPaymentCanceled(orderId)
+    func paymentFailed(_ errorMessage: String?) {
+        self.delegate?.onPaymentFailed(errorMessage)
     }
 }
 

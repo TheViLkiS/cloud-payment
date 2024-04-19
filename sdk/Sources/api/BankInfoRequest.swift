@@ -6,7 +6,6 @@
 //
 
 import CloudpaymentsNetworking
-import Foundation
 
 class BankInfoRequest: BaseRequest, CloudpaymentsRequestType {
     private let firstSix: String

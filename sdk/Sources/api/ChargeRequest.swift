@@ -6,7 +6,6 @@
 //
 
 import CloudpaymentsNetworking
-import Foundation
 
 class ChargeRequest: BaseRequest, CloudpaymentsRequestType {
     typealias ResponseType = TransactionResponse

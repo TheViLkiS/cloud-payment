@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Foundation
 
 class SbpCell: UITableViewCell {
     @IBOutlet weak var logoImageView: UIImageView!

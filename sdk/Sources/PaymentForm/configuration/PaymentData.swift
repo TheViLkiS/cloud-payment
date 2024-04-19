@@ -55,6 +55,7 @@ public struct PaymentDataPayer: Codable {
 }
 
 public class PaymentData {
+    private (set) var splits: [Splits]?
     private (set) var payer: PaymentDataPayer?
     private (set) var amount: String = "0"
     private (set) var currency: String = "RUB"
@@ -66,14 +67,16 @@ public class PaymentData {
     private (set) var ipAddress: String? = "98.21.123.32"
     private (set) var cultureName: String?
     private (set) var jsonData: String?
-    private (set) var orderId: Int
     
     var email: String?
+    var terminalUrl: String? = nil
     var saveCard: Bool? = nil
     var cryptogram: String?
+    var isCvvRequired: Bool?
+    var isAllowedNotSanctionedCards: Bool? = nil
+    var isQiwi: Bool? = nil
     
-    public init(orderId: Int) {
-        self.orderId = orderId
+    public init() {
     }
     
     public func setAmount(_ amount: String) -> PaymentData {
@@ -135,6 +138,11 @@ public class PaymentData {
         return self
     }
     
+    public func setSplits(_ splits: [Splits]) -> PaymentData {
+        self.splits = splits
+        return self
+    }
+
     public func setJsonData(_ jsonData: String) -> PaymentData {
         
         let map = convertStringToDictionary(text: jsonData)
@@ -170,5 +178,3 @@ public class PaymentData {
     }
     
 }
-
-

@@ -18,10 +18,14 @@ struct SbpQRDataModel: Codable {
     let logoURL: String?
     let schema: String
     let packageName: String?
+    let webClientURL: String?
+    let isWebClientActive: String?
 
     enum CodingKeys: String, CodingKey {
         case bankName, logoURL, schema
         case packageName = "package_name"
+        case webClientURL = "webClientUrl"
+        case isWebClientActive
     }
     
     var deeplink: URL? {
@@ -42,6 +46,7 @@ struct GetSbpModel: Codable {
     let ttlMinutes: Int?
     let saveCard: Bool?
     let jsonData: String?
+    let successRedirectUrl: String?
 
     enum CodingKeys: String, CodingKey {
         case publicId = "PublicId"
@@ -56,5 +61,6 @@ struct GetSbpModel: Codable {
         case ttlMinutes = "TtlMinutes"
         case saveCard = "SaveCard"
         case jsonData = "JsonData"
+        case successRedirectUrl = "SuccessRedirectUrl"
     }
 }

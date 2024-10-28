@@ -20,7 +20,6 @@ let package = Package(
             url: "git@github.com:intaro/CloudPaymentNetworking.git",
             from: "1.0.2")
     ]
-]
 
     targets: [
         .target(

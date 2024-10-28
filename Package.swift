@@ -28,7 +28,7 @@ let package = Package(
             dependencies: ["CloudpaymentsNetworking"],
             path: "sdk",
             resources: [
-                .process("Resources")
+                .process("../Resources")
             ]
         )
     ]

@@ -9,25 +9,35 @@
 import Foundation
 import UIKit
 
-extension Bundle {
-    class var mainSdk: Bundle {
-        let bundle = Bundle(for: PaymentForm.self)
-        if let sdkBundle = Bundle(identifier: "org.cocoapods.Cloudpayments") {
-            let bundleUrl = sdkBundle.url(forResource: "CloudpaymentsSDK", withExtension: "bundle")
-                // используйте bundleUrl, если он найден
-            }
+import Foundation
+import UIKit
 
+extension Bundle {
+    
+    class var mainSdk: Bundle? {
+        
+        if let sdkBundle = Bundle(identifier: "org.cocoapods.Cloudpayments"),
+           let bundleUrl = sdkBundle.url(forResource: "CloudpaymentsSDK", withExtension: "bundle"),
+           let resourceBundle = Bundle(url: bundleUrl) {
+            return resourceBundle
+        }
+        
+        let bundle = Bundle(for: PaymentForm.self)
         if let bundleUrl = bundle.url(forResource: "CloudpaymentsSDK", withExtension: "bundle"),
            let resourceBundle = Bundle(url: bundleUrl) {
             return resourceBundle
         }
-        if let resourceBundle = Bundle.main.url(forResource: "CloudpaymentsSDK", withExtension: "bundle").flatMap(Bundle.init(url:)) {
+        
+        if let bundleUrl = Bundle.main.url(forResource: "CloudpaymentsSDK", withExtension: "bundle"),
+           let resourceBundle = Bundle(url: bundleUrl) {
             return resourceBundle
         }
-        return Bundle.main
+        
+        print("CloudpaymentsSDK.bundle not found")
+        return nil
     }
     
-        class var cocoapods: Bundle? {
+    class var cocoapods: Bundle? {
         return Bundle(identifier: "org.cocoapods.Cloudpayments")
     }
 }

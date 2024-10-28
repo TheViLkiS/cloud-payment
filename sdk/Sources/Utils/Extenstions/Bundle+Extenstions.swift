@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+public class CloudPaymentsBundle {
+    public static let bundle = Bundle.module
+}
+
 extension Bundle {
     
     class var mainSdk: Bundle {

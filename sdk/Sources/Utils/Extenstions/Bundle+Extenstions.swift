@@ -33,7 +33,7 @@ extension Bundle {
             return resourceBundle
         }
 
-        if let bundleURL = Bundle.main.url(forResource: "CloudPayments_CloudPayments", withExtension: "bundle"),
+        if let bundleUrl = Bundle.main.url(forResource: "CloudPayments_CloudPayments", withExtension: "bundle"),
            let resourceBundle = Bundle.init(url: bundleUrl) {
             return resourceBundle
         }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension Bundle {
-    class var mainSdk: Bundle? {
+    class var mainSdk: Bundle {
         let bundle = Bundle(for: PaymentForm.self)
         if let resourceBundleURL = bundle.resourceURL?
             .appendingPathComponent("CloudPayments_CloudPayments.bundle"),

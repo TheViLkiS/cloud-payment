@@ -8,12 +8,11 @@
 import Foundation
 import UIKit
 
-
 extension Bundle {
     
     class var mainSdk: Bundle {
         let bundle = Bundle.init(for: PaymentForm.self)
-        let bundleUrl = bundle.url(forResource: "cloudpaymentssdk.CloudpaymentsSDK.resources", withExtension: "bundle")
+        let bundleUrl = bundle.url(forResource: "CloudpaymentsSDK", withExtension: "bundle")
         return Bundle.init(url: bundleUrl!)!
     }
     
@@ -21,3 +20,4 @@ extension Bundle {
         return Bundle(identifier: "org.cocoapods.Cloudpayments")
     }
 }
+

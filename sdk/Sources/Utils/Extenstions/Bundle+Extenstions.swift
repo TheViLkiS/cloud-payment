@@ -13,7 +13,7 @@ extension Bundle {
     class var mainSdk: Bundle {
         let bundle = Bundle.init(for: PaymentForm.self)
         let bundleUrl = bundle.url(forResource: "CloudpaymentsSDK", withExtension: "bundle")
-        return Bundle.init(url: bundleUrl!)!
+        return Bundle.main
     }
     
     class var cocoapods: Bundle? {

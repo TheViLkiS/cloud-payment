@@ -14,7 +14,7 @@ import UIKit
 
 extension Bundle {
     
-    class var mainSdk: Bundle? {
+    class var mainSdk: Bundle {
         
         if let sdkBundle = Bundle(identifier: "org.cocoapods.Cloudpayments"),
            let bundleUrl = sdkBundle.url(forResource: "CloudpaymentsSDK", withExtension: "bundle"),
@@ -34,7 +34,7 @@ extension Bundle {
         }
         
         print("CloudpaymentsSDK.bundle not found")
-        return nil
+        return Bundle.main
     }
     
     class var cocoapods: Bundle? {

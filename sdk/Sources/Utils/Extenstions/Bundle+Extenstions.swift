@@ -34,8 +34,8 @@ extension Bundle {
         }
 
         if let bundleURL = Bundle.main.url(forResource: "CloudPayments_CloudPayments", withExtension: "bundle"),
-           let bundle = Bundle(url: bundleURL) {
-            return bundle
+           let resourceBundle = Bundle.init(url: bundleUrl) {
+            return resourceBundle
         }
         
         print("CloudpaymentsSDK.bundle not found")

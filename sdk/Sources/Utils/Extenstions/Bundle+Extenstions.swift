@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 extension Bundle {
-    class var mainSdk: Bundle? {
-        return Bundle(identifier: "cloudpayments.CloudPayments.resources")
+    class var mainSdk: Bundle {
+        return Bundle(identifier: "cloudpayments.CloudPayments.resources") ?? Bundle.main
     }
 }
 

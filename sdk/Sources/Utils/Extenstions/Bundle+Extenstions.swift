@@ -12,7 +12,7 @@ extension Bundle {
     
     class var mainSdk: Bundle {
         
-        if let sdkBundle = Bundle(identifier: "org.cocoapods.Cloudpayments"),
+        if let sdkBundle = Bundle(identifier: "cloudpayments.Cloudpayments.resources"),
            let bundleUrl = sdkBundle.url(forResource: "CloudpaymentsSDK", withExtension: "bundle"),
            let resourceBundle = Bundle(url: bundleUrl) {
             return resourceBundle
@@ -34,6 +34,6 @@ extension Bundle {
     }
     
     class var cocoapods: Bundle? {
-        return Bundle(identifier: "org.cocoapods.Cloudpayments")
+        return Bundle(identifier: "cloudpayments.Cloudpayments.resources")
     }
 }

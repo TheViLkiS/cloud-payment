@@ -86,7 +86,7 @@ final class PaymentOptionsForm: PaymentForm, PKPaymentAuthorizationViewControlle
     
     @discardableResult
     public class func present(with configuration: PaymentConfiguration, from: UIViewController, completion: (() -> ())?) -> PaymentForm {
-        let storyboard = UIStoryboard.init(name: "PaymentForm", bundle: Bundle.main)
+        let storyboard = UIStoryboard.init(name: "PaymentForm", bundle: Bundle.mainSdk)
         
         let controller = storyboard.instantiateViewController(withIdentifier: "PaymentOptionsForm") as! PaymentOptionsForm
     

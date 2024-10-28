@@ -20,12 +20,20 @@ let package = Package(
             url: "git@github.com:intaro/CloudPaymentNetworking.git",
             from: "1.0.2")
     ],
-    
+    resources: [
+    .process("../Resources"),
+    .copy("../Resources/PaymentModule/PaymentForm.storyboard")
+]
+
     targets: [
         .target(
             name: "CloudPayments",
             dependencies: ["CloudpaymentsNetworking"],
             path: "sdk",
-            resources: [.process("../Resources"), .copy("../Resources/PaymentModule/PaymentForm.storyboard")])
+    resources: [
+        .process("../Resources"),
+        .copy("../Resources/PaymentModule/PaymentForm.storyboard")
+]
+        )
     ]
 )

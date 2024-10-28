@@ -8,13 +8,19 @@
 import Foundation
 import UIKit
 
-import Foundation
-
 extension Bundle {
-    static var mainSdk: Bundle {
-        return Bundle.module
+    
+    class var mainSdk: Bundle {
+        let bundle = Bundle.init(for: PaymentForm.self)
+        let bundleUrl = bundle.url(forResource: "CloudpaymentsSDK", withExtension: "bundle")
+        return Bundle.init(url: bundleUrl!)!
+    }
+    
+    class var cocoapods: Bundle? {
+        return Bundle(identifier: "org.cocoapods.Cloudpayments")
     }
 }
+
 
 
 

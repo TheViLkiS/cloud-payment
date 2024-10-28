@@ -8,20 +8,13 @@
 import Foundation
 import UIKit
 
+import Foundation
+
 extension Bundle {
-    class var mainSdk: Bundle {
-        let bundle = Bundle(for: PaymentForm.self)
-        if let resourceBundleURL = bundle.resourceURL?
-            .appendingPathComponent("CloudPayments_CloudPayments.bundle"),
-           let resourceBundle = Bundle(url: resourceBundleURL) {
-            return resourceBundle
-        } else if let resourceBundleURL = bundle.resourceURL?
-            .appendingPathComponent("CloudPayments.bundle"),
-           let resourceBundle = Bundle(url: resourceBundleURL) {
-            return resourceBundle
-        }
-        return Bundle.main
+    static var mainSdk: Bundle {
+        return Bundle.module
     }
 }
+
 
 

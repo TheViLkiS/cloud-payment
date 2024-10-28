@@ -20,7 +20,7 @@ extension Bundle {
            let resourceBundle = Bundle(url: resourceBundleURL) {
             return resourceBundle
         }
-        return nil
+        return Bundle.main
     }
 }
 

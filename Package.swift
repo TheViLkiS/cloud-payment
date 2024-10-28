@@ -26,6 +26,6 @@ let package = Package(
             name: "CloudPayments",
             dependencies: ["CloudpaymentsNetworking"],
             path: "sdk",
-            resources: [.process("../Resources"), .process("../Resources/PaymentModule/PaymentForm.storyboard")])
+            resources: [.process("../Resources"), .copy("../Resources/PaymentModule/PaymentForm.storyboard")])
     ]
 )
